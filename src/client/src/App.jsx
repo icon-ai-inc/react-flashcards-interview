@@ -8,7 +8,6 @@ const Placeholder = () => {
   useEffect(() => {
     fetch("/api/flashcards").then(async (flashcards) => {
       const flashcardsReturned = await flashcards.json();
-      setFlashcards(flashcardsReturned);
     });
   }, []);
 
