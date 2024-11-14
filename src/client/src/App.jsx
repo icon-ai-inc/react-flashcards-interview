@@ -12,7 +12,7 @@ const Placeholder = () => {
     });
   }, []);
 
-  return <div>{users.join(",")}</div>;
+  return <div>{flashcards.join(",")}</div>;
 };
 
 function App() {
