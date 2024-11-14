@@ -1,29 +1,27 @@
 import "./App.css";
-import { Routes, Route, BrowserRouter as Router, } from "react-router-dom";
-import React, {useEffect, useState} from "react";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
 const Placeholder = () => {
-    const [users, setUsers] = useState([]);
+  const [flashcards, setFlashcards] = useState([]);
 
-    useEffect(() => {
-        fetch('/api/users').then( async (user) => {
-            const usersReturned = await user.json();
-            setUsers(Object.values(usersReturned)[0])
-        })
-    }, []);
+  useEffect(() => {
+    fetch("/api/flashcards").then(async (flashcards) => {
+      const flashcardsReturned = await flashcards.json();
+      setFlashcards(flashcardsReturned);
+    });
+  }, []);
 
-    return <div>{users.join(',')}</div>
+  return <div>{users.join(",")}</div>;
 };
 
 function App() {
-
-
   return (
     <div className="App">
       <Router>
-          <Routes>
-              <Route path="/flashcards" element={<Placeholder/>} />
-          </Routes>
+        <Routes>
+          <Route path="/flashcards" element={<Placeholder />} />
+        </Routes>
       </Router>
     </div>
   );
